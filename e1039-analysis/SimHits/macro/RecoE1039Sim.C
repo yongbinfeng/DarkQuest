@@ -9,7 +9,7 @@ R__LOAD_LIBRARY(libPHPythia8)
 R__LOAD_LIBRARY(libg4detectors)
 R__LOAD_LIBRARY(libg4testbench)
 R__LOAD_LIBRARY(libg4eval)
-R__LOAD_LIBRARY(libg4dst)
+R__LOAD_LIBRARY(libg4dst.so)
 R__LOAD_LIBRARY(libdptrigger)
 R__LOAD_LIBRARY(libevt_filter)
 R__LOAD_LIBRARY(libktracker)
@@ -53,8 +53,8 @@ int RecoE1039Sim(const int nevents = 200,
 		 const bool do_displaced_tracking = true,
 		 const bool do_analysis = true,
 		 bool run_pileup = false,
-		 std::string input_file = "Brem_2.750000_z500_600_eps_-6.4",
-		 std::string input_path = "/seaquest/users/cmantill/DarkQuest/lhe/output/displaced_Aprime_Muons_z500-600/",
+		 std::string input_file = "Brem_0.750000_z500_600_eps_-6.4",
+		 std::string input_path = "/cms/data/seaquest/users/cmantill/DarkQuest/lhe/output/displaced_Aprime_Muons_z500-600/",
 		 std::string out_file = "output.root",
 		 std::string out_path = "./",
 		 std::string pileup_file = "/pnfs/e1039/persistent/users/apun/bkg_study/e1039pythiaGen_26Oct21/10_bkge1039_pythia_wshielding_100M.root",
