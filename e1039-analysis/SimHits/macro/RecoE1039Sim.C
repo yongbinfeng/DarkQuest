@@ -46,6 +46,7 @@ using namespace std;
  * for Aprime signal, is_displaced to always set to True
  */
 
+
 int RecoE1039Sim(const int nevents = 200,
 		 const int isim = 1,
 		 const int igun = 0,
@@ -152,7 +153,7 @@ int RecoE1039Sim(const int nevents = 200,
   const bool legacy_rec_container =  true; // false is for e1039 format
 
   // save dst file 
-  const bool save_dst = true;
+  const bool save_dst = false;
 
   // setup detectors in SpinQuest
   const bool do_collimator = true;
@@ -481,6 +482,7 @@ int RecoE1039Sim(const int nevents = 200,
   }
 
   // output (DST file)
+
   std::string dstfile = ofile;
   dstfile.resize(dstfile.size() - 5); // remove root from ending
   dstfile.append("_DST.root");
@@ -503,6 +505,7 @@ int RecoE1039Sim(const int nevents = 200,
   if(save_dst){
     se->registerOutputManager(out);
   }
+  
   se->run(nevents);
 
   // export the geometry
