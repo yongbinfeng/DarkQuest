@@ -47,15 +47,15 @@ using namespace std;
  */
 
 
-int RecoE1039Sim(const int nevents = 200,
+int RecoE1039Sim(const int nevents = 1000,
 		 const int isim = 1,
 		 const int igun = 0,
 		 const double zvertex = -300, // target_coil_pos_z
 		 const bool do_displaced_tracking = true,
 		 const bool do_analysis = true,
 		 bool run_pileup = false,
-		 std::string input_file = "Brem_0.750000_z500_600_eps_-6.4",
-		 std::string input_path = "/cms/data/seaquest/users/cmantill/DarkQuest/lhe/output/displaced_Aprime_Muons_z500-600/",
+		 std::string input_file = "Brem_0.750000_z500_600_eps_-6.3",
+		 std::string input_path = "/cms/data/seaquest/users/dsperka/DarkQuest/output/displaced_Aprime_Muons/",
 		 std::string out_file = "output.root",
 		 std::string out_path = "./",
 		 std::string pileup_file = "/pnfs/e1039/persistent/users/apun/bkg_study/e1039pythiaGen_26Oct21/10_bkge1039_pythia_wshielding_100M.root",
@@ -164,15 +164,17 @@ int RecoE1039Sim(const int nevents = 200,
   const bool do_absorber   = true;
   const bool do_dphodo     = true;
   const bool do_station1DC = false; // station-1 drift chamber should be turned off by default
-  const bool doEMCal       = true; // emcal turned on by default (for DarkQuest!)
+  const bool doEMCal       = false; // emcal turned on by default (for DarkQuest!)
 
   // SpinQuest constants
   const double target_coil_pos_z = -300;
   const double target_l = 7.9;                   // cm
   const double target_z = (7.9 - target_l) / 2.; // cm
   const int use_g4steps = 1;
-  const double FMAGSTR = -1.054;
-  const double KMAGSTR = -0.951;
+  //const double FMAGSTR = -1.054;
+  //const double KMAGSTR = -0.951;
+  const double FMAGSTR = -1.044;
+  const double KMAGSTR = 1.025;
 
   // SpinQuest reco constants
   recoConsts *rc = recoConsts::instance();
@@ -181,7 +183,7 @@ int RecoE1039Sim(const int nevents = 200,
   if(doEMCal){
     rc->set_CharFlag(
 		     "AlignmentMille",
-		     "align_mille.txt"); // alignment file needed for EMCAL
+		     "$DIR_TOP/alignment/align_mille.txt"); // alignment file needed for EMCAL
   }
   rc->set_CharFlag("fMagFile",
                    "$E1039_RESOURCE/geometry/magnetic_fields/tab.Fmag");
